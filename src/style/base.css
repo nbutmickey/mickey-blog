@@ -23,3 +23,20 @@ li {
     opacity: 1;
   }
 }
+@keyframes left {
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes right {
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+.index{
+  padding-bottom: 500px;
+}

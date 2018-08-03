@@ -5,13 +5,13 @@ import App from './App'
 import router from './router'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {faHome,faTags,faArchive,faUser} from '@fortawesome/free-solid-svg-icons'
+import {faHome,faTags,faArchive,faUser,faCalendarTimes,faFolder,faEye} from '@fortawesome/free-solid-svg-icons'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 //引入font-awesome-icon的全局配置
-library.add(faHome,faTags,faArchive,faUser);
+library.add(faHome,faTags,faArchive,faUser,faCalendarTimes,faFolder,faEye);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 //进度条全局配置
