@@ -6,7 +6,7 @@ import router from './router'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faHome,faTags,faArchive,faUser,faCalendarTimes,faFolder,faEye} from '@fortawesome/free-solid-svg-icons'
-
+import axios from 'axios'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
@@ -14,6 +14,8 @@ import 'nprogress/nprogress.css'
 library.add(faHome,faTags,faArchive,faUser,faCalendarTimes,faFolder,faEye);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+//全局配置axios
+Vue.prototype.$http=axios;
 //进度条全局配置
 router.beforeEach((to,from,next) =>{
   NProgress.start();
