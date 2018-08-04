@@ -3,8 +3,8 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(item) in list">
-        <router-view/>
         <keep-alive>
+          <router-view/>
           <component :is="item.component"></component>  //动态组件通过:is="模板文件"动态加载不同模板文件
         </keep-alive>
       </div>
