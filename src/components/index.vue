@@ -2,9 +2,9 @@
 <div class="index">
   <div class="index-main-container">
     <section style="padding-top: 30px">
-      <div class="article" v-for="(item,index) in articles.dataList" :key="index">
+      <div class="article" v-for="(item,index) in articles.dataList" :key="index" >
         <div class="article-expand">
-          <h2 class="article-title">{{item.title}}</h2>
+          <router-link class="article-title" :to="{name:'articles',params:{id:item.postId}}">{{item.title}}</router-link>
           <div class="article-meta" >
             <font-awesome-icon :icon="['fas','calendar-times']" style="color: red" ></font-awesome-icon>
             <span>{{time(item.date)}}</span> |
@@ -45,7 +45,6 @@
                 pageSize:pageSize,
                 pageNum:pageNum
                 }}).then(res=>{
-                console.log(res);
                 this.articles = res.data;
                 this.pageNow = res.data.pageNum;
               });
@@ -73,28 +72,30 @@
     right: -35px;
   }
   .article-title{
+    display: inline-block;
     color: #333;
     font-size: 26px;
-    padding: 5px 15px;
+    padding: 10px 15px 5px;
   }
   .article-expand{
     display: inline-block;
   }
   .article-desc{
-    padding: 15px;
+    padding: 10px 15px 15px;
     word-break: break-word;
     color: #555;
     font-family: Roboto Slab,PingFang SC,Microsoft YaHei,sans-serif;
   }
   .article-meta{
-    padding:10px 15px;
+    padding:10px 15px 0;
     font-size: 16px
   }
 
   .article{
     border-radius: 5px;
     box-shadow:5px 5px 20px #333333;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    cursor: pointer;
   }
   .index-main-container{
     width: 700px;

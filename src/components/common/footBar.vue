@@ -23,7 +23,10 @@
 </script>
 
 <style scoped lang="less">
-  footer{
+  .footerBar{
+    position: relative;
+  }
+  footer {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -31,9 +34,9 @@
     min-width: 350px;
     font-size: 14px;
     color: #999;
-    .footer-inner{
+    .footer-inner {
       text-align: center;
-      margin: 10px 0;
+      margin: 5px 0;
     }
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="index">
   I am tags
 </div>
 </template>

@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <header-bar></header-bar>
-    <swiper></swiper>
-    <!--<router-view/>-->
+        <swiper></swiper>
     <footer-bar></footer-bar>
   </div>
 </template>
@@ -26,7 +25,8 @@ export default {
 <style>
   /*引入全局样式*/
   @import './style/base.css';
-  #app{
-    position: relative;
-  }
+  @import './style/md.css';
+  /*#app{*/
+    /*position: relative;*/
+  /*}*/
 </style>

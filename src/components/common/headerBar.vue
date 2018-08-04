@@ -46,7 +46,7 @@
             backgroundImage:require('../../assets/header-bg.jpg'),
             isNavBarShow:false,
             navList:[
-              {routeToName:'home',iconName:'home',navName:'首页'},
+              {routeToName:'index',iconName:'home',navName:'首页'},
               {routeToName:'tags',iconName:'tags',navName:'标签'},
               {routeToName:'archives',iconName:'archive',navName:'归档'},
               {routeToName:'about',iconName:'user',navName:'关于'},

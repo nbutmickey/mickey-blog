@@ -3,6 +3,7 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(item) in list">
+        <router-view/>
         <keep-alive>
           <component :is="item.component"></component>  //动态组件通过:is="模板文件"动态加载不同模板文件
         </keep-alive>
@@ -17,6 +18,7 @@
   import about from '../about'
   import archives from '../archives'
   import tags from '../tags'
+  import articles from '../articles'
   // 引入swiper的js文件和css样式表
   import Swiper from '../../../static/swiper.min'
   import '../../../static/swiper.min.css';
@@ -26,7 +28,7 @@
         index,
         about,
         tags,
-        archives
+        archives,
       },
       data(){
         return {
@@ -34,7 +36,7 @@
             {path:'/',name:'index',component:index},
             {path:'/tags',name:'tags',component:tags},
             {path:'/archives',name:'archives',component:archives},
-            {path:'/about',name:'about',component:about}
+            {path:'/about',name:'about',component:about},
           ]
         }
       },

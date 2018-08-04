@@ -47,6 +47,21 @@ router.get('/getAllArticles',(req,res)=>{
   })
 });
 
+//获取文章详情
+router.get('/getArticleDetails',(req,res)=>{
+  let postId=req.query.postId;
+  let detail={};
+  let sql=$sql.articles.getArticleDetail;
+  conn.query(sql,[postId],(err,result)=>{
+    detail=result[0];
+    if(err){
+    console.log(err);
+    }
+    if(detail){
+      JsonBack(res,detail);
+    }
+  })
 
+});
 
 module.exports = router;

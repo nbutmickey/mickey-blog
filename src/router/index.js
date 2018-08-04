@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import index from '@/components/index'
 import about from '@/components/about'
 import archives from '@/components/archives'
-import article from '@/components/article'
+import articles from '@/components/articles'
 import tags from '@/components/tags'
 import tagArticle from '@/components/tagArticle'
 Vue.use(Router);
@@ -17,9 +17,9 @@ export default new Router({
       component: index
     },
     {
-      path:'/article/:id',
-      name:'article',
-      component:article
+      path:'/articles/:id',
+      name:'articles',
+      component:articles
     },
     {
       path:'/archives',
