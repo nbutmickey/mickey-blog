@@ -1,9 +1,8 @@
 <template>
 <div>
   <div class="index">
-  <div class="main-inner" >
-        <div class="comment-body markdown-body" v-html="detail.detail">
-    </div>
+  <div class="main-inner">
+        <div class="comment-body markdown-body" v-html="detail.detail"></div>
   </div>
   </div>
 </div>
@@ -39,9 +38,9 @@
     margin: 0 auto;
     min-width: 350px
   }
-  @media screen and(max-width:768px) {
-    .main-inner {
-      width: 94%;
+  @media screen and (max-width:768px) {
+    .main-inner{
+      width: 60%;
     }
   }
   .comment-body {
