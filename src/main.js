@@ -13,7 +13,6 @@ import 'nprogress/nprogress.css'
 //引入font-awesome-icon的全局配置
 library.add(faHome,faTags,faArchive,faUser,faCalendarTimes,faFolder,faEye);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-
 //全局配置axios
 Vue.prototype.$http=axios;
 //进度条全局配置

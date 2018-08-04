@@ -2,10 +2,8 @@
 <div class="swiper-box">
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" v-for="(item) in list">
-          <router-view>
-          <!--<component :is="item.component"></component>  //动态组件通过:is="模板文件"动态加载不同模板文件-->
-          </router-view>
+      <div class="swiper-slide">
+          <router-view></router-view>
       </div>
     </div>
   </div>
@@ -23,22 +21,6 @@
   import '../../../static/swiper.min.css';
     export default {
       name: "swiper",
-      components:{
-        index,
-        about,
-        tags,
-        archives,
-      },
-      data(){
-        return {
-          list:[
-            {path:'/',name:'index',component:index},
-            {path:'/tags',name:'tags',component:tags},
-            {path:'/archives',name:'archives',component:archives},
-            {path:'/about',name:'about',component:about},
-          ]
-        }
-      },
       mounted(){
         let mySwiper=new Swiper('.swiper-container',{
           initialSlide:this.$route.path==='/'?0:this.$route.path==='/tags'?1:this.$route.path==='/archives'?2:

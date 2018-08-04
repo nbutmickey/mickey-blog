@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="index">
   I am archives
 </div>
 </template>

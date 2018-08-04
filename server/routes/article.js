@@ -33,7 +33,7 @@ router.get('/getAllArticles',(req,res)=>{
     total=result.length;
     dataList=result.reverse().slice(pageSize*(pageNum-1),pageSize+pageSize*(pageNum-1));
     let resData={
-      total:Math.ceil(total/pageSize),
+      total:total,
       pageNum:pageNum,
       pageSize:pageSize,
       dataList:dataList

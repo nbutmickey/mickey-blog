@@ -19,17 +19,23 @@
       </div>
     </section>
   </div>
+  <v-pagination :total="total" :current-page="pageNow" @pageChange="getArticles"></v-pagination>
 </div>
 </template>
 
-<script>
+<script type="es6">
+  import paginaion from './common/pagination'
   import {formatTime} from '../util/formDate'
     export default {
-        name: "index",
+      name: "index",
+      components:{
+        'v-pagination':paginaion
+      },
         data(){
           return {
             articles:[],
-            pageSize:6,
+            total:0,
+            pageSize:8,
             pageNow:1
           }
         },
@@ -37,16 +43,18 @@
           if(sessionStorage.getItem('pageNow')){
             this.pageNow=sessionStorage.getItem('pageNow')
           }
-           this.getArticles(this.pageNow,this.pageSize);
+           this.getArticles(this.pageNow);
       },
       methods:{
-          getArticles:function (pageNum,pageSize) {
+          getArticles:function (pageNum) {
               this.$http.get('/api/getAllArticles',{params:{
-                pageSize:pageSize,
+                pageSize:8,
                 pageNum:pageNum
                 }}).then(res=>{
                 this.articles = res.data;
                 this.pageNow = res.data.pageNum;
+                this.total=res.data.total;
+                this.pageNum=res.data.pageNum;
               });
           },
           time:function (times) {
