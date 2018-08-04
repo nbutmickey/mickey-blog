@@ -22,7 +22,7 @@
         },
        methods:{
           getArticleDetail:function () {
-            this.$http.get('http://localhost:8080/api/getArticleDetails',{params:{
+            this.$http.get('/api/getArticleDetails',{params:{
                 postId:this.$route.params.id,
               }}).then(res=>{
               this.detail=res.data;

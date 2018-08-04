@@ -41,7 +41,7 @@
       },
       methods:{
           getArticles:function (pageNum,pageSize) {
-              this.$http.get('api/getAllArticles',{params:{
+              this.$http.get('/api/getAllArticles',{params:{
                 pageSize:pageSize,
                 pageNum:pageNum
                 }}).then(res=>{

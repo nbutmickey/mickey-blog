@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-bar></header-bar>
-        <swiper></swiper>
+    <swiper></swiper>
     <footer-bar></footer-bar>
   </div>
 </template>

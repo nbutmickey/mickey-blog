@@ -55,7 +55,7 @@ router.get('/getArticleDetails',(req,res)=>{
   conn.query(sql,[postId],(err,result)=>{
     detail=result[0];
     if(err){
-    console.log(err);
+      console.log(err);
     }
     if(detail){
       JsonBack(res,detail);
