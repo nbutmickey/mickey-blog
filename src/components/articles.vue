@@ -46,7 +46,7 @@
   .comment-body {
     width: 100%;
     padding: 15px;
-    overflow: visible;
+    overflow: auto;
     font-size: 14px;
     color: #24292e;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,

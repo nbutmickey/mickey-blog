@@ -2,9 +2,10 @@
 <div class="swiper-box">
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-          <router-view></router-view>
-      </div>
+      <div class="swiper-slide"><index></index></div>
+      <div class="swiper-slide"><tags></tags></div>
+      <div class="swiper-slide"><archives></archives></div>
+      <div class="swiper-slide"><about></about></div>
     </div>
   </div>
 </div>
@@ -21,9 +22,15 @@
   import '../../../static/swiper.min.css';
     export default {
       name: "swiper",
+      components:{
+        index,
+        about,
+        tags,
+        archives
+      },
       mounted(){
         let mySwiper=new Swiper('.swiper-container',{
-          initialSlide:this.$route.path==='/'?0:this.$route.path==='/tags'?1:this.$route.path==='/archives'?2:
+          initialSlide:this.$route.path==='/index'?0:this.$route.path==='/tags'?1:this.$route.path==='/archives'?2:
             this.$route.path==='/about'?3:0
         });
         //当滑动到某个页面的时候，立即发射当前页面index的信号

@@ -67,7 +67,7 @@
           this.$root.$emit('changeTab',index);
         },
         slideTab(index){
-          let href=index===0?'/':index===1?'/tags':index===2?'/archives':index===3?'/about':'/';
+          let href=index===0?'/index':index===1?'/tags':index===2?'/archives':index===3?'/about':'/';
           //利用路由的push方法更新路由
           this.$router.push(href);
         }
