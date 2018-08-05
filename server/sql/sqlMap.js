@@ -4,7 +4,8 @@ let sqlMap={
     getArticleDetail:'SELECT * FROM articles where postId=?',
   },
   tags:{
-    getAllTags:'SELECT tag,relations.tagId,count(*) AS length FROM relations,tags WHERE relations.tagId=tags.tagId GROUP BY relations.tagId'
+    getAllTags:'SELECT tag,relations.tagId,count(*) AS length FROM relations,tags WHERE relations.tagId=tags.tagId GROUP BY relations.tagId\n' +
+    ',tags.tag'
   }
 };
 
