@@ -64,4 +64,19 @@ router.get('/getArticleDetails',(req,res)=>{
 
 });
 
+//获取全部标签
+router.get('/getAllTags',(req,res)=>{
+  let sql=$sql.tags.getAllTags;
+  conn.query(sql,(err,result)=>{
+    if(err){
+      console.log(err);
+    }
+    let tagList;
+    tagList=result;
+    if(tagList){
+      JsonBack(res,tagList);
+    }
+  })
+});
+
 module.exports = router;

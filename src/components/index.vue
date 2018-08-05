@@ -96,7 +96,7 @@
   }
   .article-meta{
     padding:10px 15px 0;
-    font-size: 16px
+    font-size: 12px
   }
 
   .article{
