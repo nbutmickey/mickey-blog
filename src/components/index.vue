@@ -111,6 +111,7 @@
   .article{
     border-radius: 5px;
     box-shadow:3px 5px 5px #1b1f23;
+    background: #FFF;
     margin-bottom: 20px;
     cursor: pointer;
   }

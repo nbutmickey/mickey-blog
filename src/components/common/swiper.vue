@@ -2,7 +2,7 @@
 <div class="swiper-box">
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><index></index></div>
+      <div class="swiper-slide" style="height: auto"><index></index></div>
       <div class="swiper-slide"><tags></tags></div>
       <div class="swiper-slide"><archives></archives></div>
       <div class="swiper-slide"><about></about></div>
