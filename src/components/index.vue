@@ -6,12 +6,12 @@
         <div class="article-expand">
           <router-link class="article-title" :to="{name:'articles',params:{id:item.postId}}">{{item.title}}</router-link>
           <div class="article-meta" >
-            <font-awesome-icon :icon="['fas','calendar-times']" style="color: red" ></font-awesome-icon>
-            <span>{{time(item.date)}}</span> |
-            <font-awesome-icon :icon="['fas','folder']" style="color: yellow"></font-awesome-icon>
-            <span>{{item.tags.indexOf(',')?item.tags.replace(',',' '):item.tags}}</span> |
-            <font-awesome-icon :icon="['fas','eye']" ></font-awesome-icon>
-            <span>{{item.readNum}}</span>
+            <font-awesome-icon :icon="['fas','calendar-times']" class="time" ></font-awesome-icon>
+            <span class="time">{{time(item.date)}}</span> |
+            <font-awesome-icon :icon="['fas','folder']" class="tags"></font-awesome-icon>
+            <span class="tags">{{item.tags.indexOf(',')?item.tags.replace(',',' '):item.tags}}</span> |
+            <font-awesome-icon :icon="['fas','eye']" class="count"></font-awesome-icon>
+            <span class="count">{{item.readNum}}</span>
           </div>
           <div class="article-desc" v-html="item.desc">
            </div>
@@ -94,14 +94,23 @@
     color: #555;
     font-family: Roboto Slab,PingFang SC,Microsoft YaHei,sans-serif;
   }
+  .time{
+    color: #00a7e0;
+  }
+  .tags{
+    color: #D6D00B;
+  }
+  .count{
+    color: #ff3f1a;
+  }
   .article-meta{
     padding:10px 15px 0;
-    font-size: 12px
+    font-size: 10px
   }
 
   .article{
     border-radius: 5px;
-    box-shadow:5px 5px 20px #333333;
+    box-shadow:3px 5px 5px #1b1f23;
     margin-bottom: 20px;
     cursor: pointer;
   }

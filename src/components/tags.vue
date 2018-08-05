@@ -42,7 +42,7 @@
 }
 .post-main-container{
   padding-top: 30px;
-  height: 360px;
+  min-height: 200px;
 }
 .tag-cloud{
   text-align: center;
