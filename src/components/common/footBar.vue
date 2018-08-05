@@ -2,7 +2,16 @@
 <div class="footerBar">
   <footer>
     <div class="footer-inner">
-      <span>@2017 - {{year}}</span> | <span>nbut_mickey</span>
+      <div class="contact-container">
+        <span style="text-align: center;color: #999;display: block;padding: 10px 0">您可以通过以下方式联系我</span>
+        <a href="https://github.com/nbutmickey"><img src="../../assets/github.svg"  class="contact-img"/></a>
+        <a href=""><img src="../../assets/segmentfault.svg" class="contact-img"/></a>
+        <a href=""><img src="../../assets/weixin.svg" class="contact-img"/></a>
+        <a href=""><img src="../../assets/weibo.svg" class="contact-img"/></a>
+        <a href=""><img src="../../assets/qq.svg" class="contact-img"/></a>
+      </div>
+      <div><span>&copy;2017 - {{year}}</span> | <a href="http://www.miitbeian.gov.cn">浙ICP备18029935号</a></div>
+      <span style="display: block;text-align: center;color: #999988;padding: 10px 0 0">本网站访问总量：2910次，您是第45位访客</span>
     </div>
   </footer>
 </div>
@@ -23,6 +32,18 @@
 </script>
 
 <style scoped lang="less">
+  .contact-container{
+    margin-bottom: 10px;
+  }
+  .contact-container a{
+    cursor: pointer;
+    padding: 8px;
+  }
+  .contact-img{
+    cursor: pointer;
+    width: 25px;
+    height:25px
+  }
   .footerBar{
     position: relative;
   }

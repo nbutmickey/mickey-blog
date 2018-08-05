@@ -99,7 +99,7 @@
   display: table;
   margin: 0 auto;
   height: 38px;
-  background: #c6cbd1;
+  background: rgba(0, 0, 0, 0.4);
 }
   li{
     float: left;

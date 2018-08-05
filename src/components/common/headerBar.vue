@@ -49,7 +49,7 @@
               {routeToName:'index',iconName:'home',navName:'首页'},
               {routeToName:'tags',iconName:'tags',navName:'标签'},
               {routeToName:'archives',iconName:'archive',navName:'归档'},
-              {routeToName:'about',iconName:'user',navName:'关于'},
+              {routeToName:'about',iconName:'comment-alt',navName:'留言'},
             ]
           }
         },
@@ -158,7 +158,7 @@
         animation: down .6s .4s linear;
         animation-fill-mode: forwards;
         svg {
-          opacity: 0.8;
+          opacity: 0.6;
         }
         span {
           position: relative;
