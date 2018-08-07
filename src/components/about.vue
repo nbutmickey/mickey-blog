@@ -280,8 +280,5 @@
   .message-container{
     width: 94%;
   }
-  .message-content{
-    width: 94%;
-  }
 }
 </style>
