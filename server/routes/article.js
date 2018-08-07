@@ -79,4 +79,28 @@ router.get('/getAllTags',(req,res)=>{
   })
 });
 
+router.post('/postMessage',(req,res)=>{
+  let message=req.body.params.message;
+  let sql=$sql.message.insertMessage;
+  conn.query(sql,[message.name,message.email,message.content,message.ip,message.address,message.time],(err,result)=>{
+    if(err){
+      console.log(err);
+    }
+    if(result){
+      JsonBack(res,"success");
+    }
+  });
+});
+
+router.get('/getAllMessages',(req,res)=>{
+  let sql=$sql.message.getAllMessages;
+  conn.query(sql,(err,result)=>{
+    if(err){
+      console.log(err);
+    }
+    if(result){
+      JsonBack(res,result.reverse());
+    }
+  })
+});
 module.exports = router;

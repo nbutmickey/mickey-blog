@@ -18,6 +18,21 @@ module.exports = {
             '^/api':''
           }
         },
+      '/map':{
+          target:'http://api.map.baidu.com/location',
+          changeOrigin:true,
+          pathRewrite:{
+            '^/map':''
+        },
+       '/address':{
+            target:'http://api.map.baidu.com/geocoder',
+            changeOrigin:true,
+            pathRewrite:{
+              '^/address':''
+         }
+       }
+      }
+
     },
 
     // Various Dev Server settings
