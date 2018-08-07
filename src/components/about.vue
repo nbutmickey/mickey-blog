@@ -16,7 +16,6 @@
         </div>
         <h3 style="border-bottom: 1px solid #eee;padding:5px 0 10px;">感情经历</h3>
         <div style="padding: 10px 0;text-indent: 15px" class="about-tags">
-
         </div>
         <h3 style="border-bottom: 1px solid #eee;padding:5px 0 10px;">我的故事</h3>
         <div style="padding: 10px 0 20px;line-height: 2;text-indent: 15px">
@@ -48,7 +47,6 @@
             <p>{{comment.content}}</p>
           </div>
         </section>
-
         </div>
       </div>
     </div>
@@ -150,7 +148,6 @@
   right: 0;
   bottom: 8px;
 }
-
 .about-title:before,.message-title:before{
   content: "";
   width: 30%;
@@ -281,6 +278,9 @@
 }
 @media screen and (max-width: 768px){
   .message-container{
+    width: 94%;
+  }
+  .message-content{
     width: 94%;
   }
 }
