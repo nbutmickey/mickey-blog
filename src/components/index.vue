@@ -1,5 +1,5 @@
 <template>
-<div class="index">
+<div>
   <div class="index-main-container">
     <section style="padding-top: 30px">
       <div class="article" v-for="(item,index) in articles.dataList" :key="index" >
@@ -105,7 +105,7 @@
   }
   .article-meta{
     padding:10px 15px 0;
-    font-size: 10px
+    font-size: 12px
   }
 
   .article{
