@@ -103,4 +103,63 @@ router.get('/getAllMessages',(req,res)=>{
     }
   })
 });
+
+router.get('/getTagArticle',(req,res)=>{
+  let sqlName=$sql.tags.getTagName;
+  let query=req.query;
+  console.log(query);
+  let sqlArticle=$sql.tags.getTagArticle;
+  let tags={};
+  conn.query(sqlName,[query.tagId],(err,result)=>{
+    if(err){
+      console.log(err);
+    }
+    if(result){
+      tags.tagName=result[0];
+    }
+    conn.query(sqlArticle,[query.tagId],(err,result)=>{
+      if(err){
+        console.log(err);
+      }
+      if(result){
+        console.log(result[0]);
+        tags.tagArticle=result;
+        JsonBack(res,tags);
+      }
+    });
+  })
+});
+
+router.get('/getArchives',(req,res)=>{
+  let sql=$sql.articles.getArticles;
+  let yearList=[];
+  let list=[];
+  conn.query(sql,(err,result)=>{
+    if(err){
+      console.log(err);
+    }
+    if(result){
+     for(let i=0;i<result.length;i++){
+       yearList.push(new Date(result[i].date).getFullYear());
+     }
+       yearList = [...new Set(yearList)];
+       for(let i=0;i<yearList.length;i++){
+         let obj={
+           year:yearList[i],
+           result:[],
+           total:Number,
+         };
+         for(let j=0;j<result.length;j++){
+           if(yearList[i]===new Date(result[j].date).getFullYear()){
+             obj.result.push(result[j]);
+           }
+         }
+         obj.total=result.length;
+         list.push(obj);
+       }
+       console.log(list);
+      JsonBack(res,list);
+     }
+  })
+});
 module.exports = router;

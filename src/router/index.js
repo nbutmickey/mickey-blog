@@ -32,11 +32,6 @@ export default new Router({
           component:about
         },
         {
-          path:'tags/:id',
-          name:'tagArticle',
-          component:tagArticle
-        },
-        {
           path:'tags',
           name:'tags',
           component:tags
@@ -47,6 +42,11 @@ export default new Router({
       path:'/articles/:id',
       name:'articles',
       component: articles
+    },
+    {
+      path:'/tags/:id',
+      name:'tagArticle',
+      component:tagArticle
     },
   ]
 })
