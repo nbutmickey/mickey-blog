@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="index">
   <div class="message-container">
     <div class="about-me">
       <h1 class="about-title">关于我</h1>
@@ -40,7 +40,7 @@
             <img src="../assets/user.svg"/>
             <div class="comment-meta">
               <h3>{{comment.name}}</h3>
-              <h6><time>{{comment.time}}</time> 在{{comment.address}}说:</h6>
+              <h6><time>{{date(comment.time)}}</time> 在{{comment.address}}说:</h6>
             </div>
           </header>
           <div class="comment-content">
@@ -56,6 +56,7 @@
 
 <script>
   let myVue;
+  import {formatTime} from '../util/formDate'
     export default {
         name: "about",
         data(){
@@ -77,8 +78,8 @@
       },
         mounted(){
           $("#message-textArea").click(this.getChange);
-          this.getAddress();
           this.getIp();
+          this.getAddress();
         },
         methods:{
           getChange:function () {
@@ -90,7 +91,8 @@
             });
           },
           getAddress:function () {
-            let url='/map/ip?ak=qRmTkAC9LYGhkPK6Z3Oiefd7949GRG8d&coor=bd09ll';
+            let url='/map/ip?ip='+this.ip+'&ak=qRmTkAC9LYGhkPK6Z3Oiefd7949GRG8d&coor=bd09ll';
+            console.log(url);
             this.$http.get(url).then(res=>{
               this.address=res.data.content.address;
             })
@@ -108,7 +110,7 @@
               content:this.content,
               address:this.address,
               ip:this.ip,
-              time:date.getFullYear()+'.'+date.getMonth()+'.'+date.getDay(),
+              time:date.getTime(),
             };
             this.$http.post('/api/postMessage',{params:{message}}).then(res=>{
               this.content='';
@@ -127,6 +129,9 @@
             this.$http.get('/api/getAllMessages').then(res=>{
               this.commentList=res.data;
             })
+          },
+          date:function (times) {
+            return formatTime(times,'yyyy.mm.dd hh:mm:ss');
           }
         }
     }
@@ -253,10 +258,11 @@
   margin-left: 10px
 }
 .comment-meta h3{
+
   margin-bottom: 2px;
 }
 .comment-meta h6{
-  color: #888;
+  color: #009A61;
 }
 .comment-list{
   border-bottom: 1px solid #dfe2e5;

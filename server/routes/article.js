@@ -80,9 +80,19 @@ router.get('/getAllTags',(req,res)=>{
 });
 
 router.post('/postMessage',(req,res)=>{
+  let ipAddress;
+  let forwardedIpsStr = req.header('x-forwarded-for');
+  if (forwardedIpsStr) {
+    let forwardedIps = forwardedIpsStr.split(',');
+    ipAddress = forwardedIps[0];
+  }
+  if (!ipAddress) {
+    ipAddress = req.connection.remoteAddress;
+  }
+
   let message=req.body.params.message;
   let sql=$sql.message.insertMessage;
-  conn.query(sql,[message.name,message.email,message.content,message.ip,message.address,message.time],(err,result)=>{
+  conn.query(sql,[message.name,message.email,message.content,ipAddress,message.address,message.time],(err,result)=>{
     if(err){
       console.log(err);
     }
@@ -122,7 +132,6 @@ router.get('/getTagArticle',(req,res)=>{
         console.log(err);
       }
       if(result){
-        console.log(result[0]);
         tags.tagArticle=result;
         JsonBack(res,tags);
       }
@@ -157,7 +166,6 @@ router.get('/getArchives',(req,res)=>{
          obj.total=result.length;
          list.push(obj);
        }
-       console.log(list);
       JsonBack(res,list);
      }
   })
