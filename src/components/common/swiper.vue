@@ -1,5 +1,5 @@
 <template>
-<div class="swiper-box index">
+<div class="swiper-box">
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide"><index></index></div>
@@ -30,8 +30,9 @@
       },
       mounted(){
         let mySwiper=new Swiper('.swiper-container',{
+          autoHeight: true,
           initialSlide:this.$route.path==='/index'?0:this.$route.path==='/tags'?1:this.$route.path==='/archives'?2:
-            this.$route.path==='/about'?3:0
+            this.$route.path==='/about'?3:0,
         });
         //当滑动到某个页面的时候，立即发射当前页面index的信号
         mySwiper.on('onSlideChangeEnd',()=>{
@@ -40,7 +41,6 @@
         });
         //监听并接收来自点击tab导航栏的index信号，并根据相应的index进行切换
         this.$root.$on('changeTab',(index)=>{
-
           mySwiper.slideTo(index,0,false);
           // index:指定要切换到的slide的索引
           // speed:切换速度
@@ -51,5 +51,4 @@
 </script>
 
 <style scoped>
-
 </style>

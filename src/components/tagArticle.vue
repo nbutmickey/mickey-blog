@@ -1,5 +1,4 @@
 <template>
-  <div>
   <div class="index">
 <div class="main-inner">
 <div class="post-collapse">
@@ -19,7 +18,6 @@
 </div>
 </div>
 </div>
-  </div>
 </template>
 
 <script>
@@ -51,6 +49,7 @@
 <style scoped>
 
 .main-inner{
+  padding-top: 20px;
   width: 700px;
   margin: 0 auto;
   min-width: 350px;

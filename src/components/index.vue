@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="index">
   <div class="index-main-container">
     <section style="padding-top: 30px">
       <div class="article" v-for="(item,index) in articles.dataList" :key="index" >
@@ -117,7 +117,6 @@
   }
   .index-main-container{
     width: 700px;
-    height: auto;
     margin:0 auto;
   }
   @media screen and (max-width: 768px){

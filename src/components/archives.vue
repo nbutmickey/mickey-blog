@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="index">
       <div class="main-inner">
         <div class="post-collapse">
@@ -21,7 +20,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -53,6 +51,7 @@
 
 <style scoped>
   .main-inner{
+    padding-top: 20px;
     width: 700px;
     margin: 0 auto;
     min-width: 350px;
@@ -136,18 +135,13 @@
     margin-top: -4px;
     transition: background 0.2s ease-in-out;
   }
-  .post-meta{
-    display: inline-block;
-  }
-  .post-title{
-    display: inline-block;
-  }
+
   @media screen and (max-width: 768px){
     .main-inner{
       width: 94%;
     }
     .post-collapse{
-      margin-left: 0;
+      margin-left: 10px;
     }
   }
 </style>

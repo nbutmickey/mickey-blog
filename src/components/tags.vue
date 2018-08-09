@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="index">
   <div class="post-main-container">
   <div class="post-block">
     <div class="post-cloud">
