@@ -1,5 +1,5 @@
 <template>
-<div class="index">
+<div>
   <div class="message-container">
     <div class="about-me">
       <h1 class="about-title">关于我</h1>
@@ -93,7 +93,6 @@
             let url='/map/ip?ak=qRmTkAC9LYGhkPK6Z3Oiefd7949GRG8d&coor=bd09ll';
             this.$http.get(url).then(res=>{
               this.address=res.data.content.address;
-              console.log(this.address);
             })
           },
           submitMessage:function () {

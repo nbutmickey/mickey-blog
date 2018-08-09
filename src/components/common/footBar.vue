@@ -1,6 +1,5 @@
 <template>
-<div class="footerBar">
-  <footer>
+  <div class="footer">
     <div class="footer-inner">
       <div class="contact-container">
         <span style="text-align: center;color: #999;display: block;padding: 10px 0">您可以通过以下方式联系我</span>
@@ -13,8 +12,7 @@
       <div><span>&copy;2017 - {{year}}</span> | <a href="http://www.miitbeian.gov.cn">浙ICP备18029935号</a></div>
       <span style="display: block;text-align: center;color: #999988;padding: 10px 0 0">本网站访问总量：2910次，您是第45位访客</span>
     </div>
-  </footer>
-</div>
+  </div>
 </template>
 
 <script>
@@ -48,11 +46,9 @@
     width: 25px;
     height:25px
   }
-  .footerBar{
+
+  .footer {
     position: relative;
-  }
-  footer {
-    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;

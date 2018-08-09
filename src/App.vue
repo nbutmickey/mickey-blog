@@ -26,7 +26,4 @@ export default {
   /*引入全局样式*/
   @import './style/base.css';
   @import './style/md.css';
-  /*#app{*/
-    /*position: relative;*/
-  /*}*/
 </style>

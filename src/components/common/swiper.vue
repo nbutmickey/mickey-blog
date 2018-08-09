@@ -1,5 +1,4 @@
 <template>
-<div class="swiper-box">
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide"><index></index></div>
@@ -8,7 +7,6 @@
       <div class="swiper-slide"><about></about></div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -41,7 +39,7 @@
         });
         //监听并接收来自点击tab导航栏的index信号，并根据相应的index进行切换
         this.$root.$on('changeTab',(index)=>{
-          mySwiper.slideTo(index,0,false);
+          mySwiper.slideTo(index,1000,false);
           // index:指定要切换到的slide的索引
           // speed:切换速度
           // runcallback:回调函吗，设置为false则代表不会触发onSliderChange函数

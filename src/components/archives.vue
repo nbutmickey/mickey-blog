@@ -1,5 +1,5 @@
 <template>
-    <div class="index">
+    <div>
       <div class="main-inner">
         <div class="post-collapse">
           <span class="post-move-on"></span>
@@ -117,10 +117,10 @@
     transition: border 0.2s ease-in-out;
     border-bottom: 1px dashed #ccc;
     line-height: 2;
-    top: -30px;
-    opacity: 0;
-    animation: down 0.8s 0.8s linear;
-    animation-fill-mode: both;
+    /*top: -30px;*/
+    /*opacity: 0;*/
+    /*animation: down 0.8s 0.8s linear;*/
+    /*animation-fill-mode: both;*/
   }
   .post-header:before{
     content: "";

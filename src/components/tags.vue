@@ -1,5 +1,5 @@
 <template>
-<div class="index">
+<div>
   <div class="post-main-container">
   <div class="post-block">
     <div class="post-cloud">
@@ -25,7 +25,6 @@
         },
         mounted(){
           this.$http.get('/api/getAllTags').then(res=>{
-            console.log(res);
             this.tagList=res.data;
           });
         }

@@ -1,7 +1,7 @@
 <template>
-  <div class="index">
-<div class="main-inner">
-<div class="post-collapse">
+  <div>
+  <div class="main-inner">
+  <div class="post-collapse">
   <span class="post-move-on"></span>
   <span class="post-count">OK,目前在{{tagName.tag}}标签下共计{{articles.length}}篇日志，加油，继续努力！</span>
   <div class="collection-title">
@@ -47,7 +47,6 @@
     }
 </script>
 <style scoped>
-
 .main-inner{
   padding-top: 20px;
   width: 700px;
