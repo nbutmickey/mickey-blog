@@ -79,10 +79,9 @@ router.get('/getAllTags',(req,res)=>{
   })
 });
 
-router.post('/postMessage',(req,res)=>{
+router.post('/postMessage',(req,resto)=>{
   //获取客户端IP地址
   let ipAddress;
-  let TrueAddress;
   let forwardedIpsStr = req.header('x-forwarded-for');
   if (forwardedIpsStr) {
     let forwardedIps = forwardedIpsStr.split(',');
@@ -91,23 +90,24 @@ router.post('/postMessage',(req,res)=>{
   if (!ipAddress) {
     ipAddress = req.connection.remoteAddress;
   }
-  let fetchUrl='http://api.map.baidu.com/location/ip?ip='+ipAddress+'&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
+  let fetchUrl='http://api.map.baidu.com/location/ip?ip=223.104.35.179&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
   http.get(fetchUrl,function (res) {
     res.setEncoding('utf8');
+    let rawData='';
     res.on('data',function (chunk) {
-      TrueAddress=JSON.parse(chunk).content.address_detail.province;
-    })
-  });
-
-  let message=req.body.params.message;
-  let sql=$sql.message.insertMessage;
-  conn.query(sql,[message.name,message.email,message.content,ipAddress,TrueAddress,message.time],(err,result)=>{
-    if(err){
-      console.log(err);
-    }
-    if(result){
-      JsonBack(res,"success");
-    }
+      rawData+=chunk;
+      let TrueAddress=JSON.parse(rawData).content.address;
+      let message=req.body.params.message;
+      let sql=$sql.message.insertMessage;
+      conn.query(sql,[message.name,message.email,message.content,ipAddress,TrueAddress,message.time],(err,result)=>{
+        if(err){
+          console.log(err);
+        }
+        if(result){
+          JsonBack(resto,"success");
+        }
+      });
+    });
   });
 });
 
