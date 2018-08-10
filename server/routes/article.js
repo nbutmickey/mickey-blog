@@ -90,7 +90,7 @@ router.post('/postMessage',(req,resto)=>{
   if (!ipAddress) {
     ipAddress = req.connection.remoteAddress;
   }
-  let fetchUrl='http://api.map.baidu.com/location/ip?ip=223.104.35.179&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
+  let fetchUrl='http://api.map.baidu.com/location/ip?ip='+ipAddress+'&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
   http.get(fetchUrl,function (res) {
     res.setEncoding('utf8');
     let rawData='';
