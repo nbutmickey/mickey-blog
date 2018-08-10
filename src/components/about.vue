@@ -78,25 +78,20 @@
       },
         mounted(){
           $("#message-textArea").click(this.getChange);
-          this.getIp();
-          this.getAddress();
+          // this.getIp();
+          // this.getAddress();
         },
         methods:{
           getChange:function () {
             $("#message-detail").slideDown();
           },
-          getIp:function(){
-            this.$http.get('https://ipinfo.io/json').then(res=>{
-              this.ip=res.data.ip;
-            });
-          },
-          getAddress:function () {
-            let url='/map/ip?ip='+this.ip+'&ak=qRmTkAC9LYGhkPK6Z3Oiefd7949GRG8d&coor=bd09ll';
-            console.log(url);
-            this.$http.get(url).then(res=>{
-              this.address=res.data.content.address;
-            })
-          },
+          // getAddress:function () {
+          //   let url='/map/ip?ip='+this.ip+'&ak=qRmTkAC9LYGhkPK6Z3Oiefd7949GRG8d&coor=bd09ll';
+          //   console.log(url);
+          //   this.$http.get(url).then(res=>{
+          //     this.address=res.data.content.address;
+          //   })
+          // },
           submitMessage:function () {
             if(this.name===''){
               this.notice="称呼是必填项哦"

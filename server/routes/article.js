@@ -3,7 +3,7 @@ let router = express.Router();
 let mysql =require('mysql');
 let $sql=require('../sql/sqlMap');
 let sqlConfig=require('../db/db');
-
+let http=require('http');
 //连接数据库
 let conn=mysql.createConnection(sqlConfig.mysql);
 conn.connect();
@@ -80,7 +80,9 @@ router.get('/getAllTags',(req,res)=>{
 });
 
 router.post('/postMessage',(req,res)=>{
+  //获取客户端IP地址
   let ipAddress;
+  let TrueAddress;
   let forwardedIpsStr = req.header('x-forwarded-for');
   if (forwardedIpsStr) {
     let forwardedIps = forwardedIpsStr.split(',');
@@ -89,10 +91,17 @@ router.post('/postMessage',(req,res)=>{
   if (!ipAddress) {
     ipAddress = req.connection.remoteAddress;
   }
+  let fetchUrl='http://api.map.baidu.com/location/ip?ip='+ipAddress+'&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
+  http.get(fetchUrl,function (res) {
+    res.setEncoding('utf8');
+    res.on('data',function (chunk) {
+      TrueAddress=JSON.parse(chunk).content.address_detail.province;
+    })
+  });
 
   let message=req.body.params.message;
   let sql=$sql.message.insertMessage;
-  conn.query(sql,[message.name,message.email,message.content,ipAddress,message.address,message.time],(err,result)=>{
+  conn.query(sql,[message.name,message.email,message.content,ipAddress,TrueAddress,message.time],(err,result)=>{
     if(err){
       console.log(err);
     }
