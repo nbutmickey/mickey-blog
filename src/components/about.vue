@@ -1,5 +1,5 @@
 <template>
-<div style="padding-bottom: 100px">
+<div>
   <div class="message-container">
     <div class="about-me">
       <h1 class="about-title">关于我</h1>

@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div>
   <div class="main-inner">
         <div class="comment-body markdown-body" v-html="detail.detail"></div>
   </div>
