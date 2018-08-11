@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style="padding-bottom: 50px">
   <div class="message-container">
     <div class="about-me">
       <h1 class="about-title">关于我</h1>
@@ -86,10 +86,15 @@
           },
           submitMessage:function () {
             if(this.name===''){
-              this.notice="称呼是必填项哦"
+              this.notice="Hi,称呼是必填项哦"
             }else if(this.email===''){
-              this.notice="E-mail是必填项哦"
-            } else {
+              this.notice="Hi,E-mail是必填项哦"
+            } else if (!this.isEmail(this.email)) {
+               this.notice='Hi,邮箱格式不正确哦~';
+               setTimeout(function () {
+                 myVue.notice=''
+               },1000)
+            }else{
             let date=new Date();
             let message={
               name:this.name,
@@ -112,6 +117,10 @@
             })
             }
           },
+          isEmail:function(email){
+            let reg=new RegExp("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.[a-zA-Z0-9]{2,6}$");
+            return reg.test(email);
+            },
           getAllComments:function () {
             this.$http.get('/api/getAllMessages').then(res=>{
               this.commentList=res.data;
