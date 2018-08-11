@@ -85,10 +85,21 @@
             $("#message-detail").slideDown();
           },
           submitMessage:function () {
-            if(this.name===''){
-              this.notice="Hi,称呼是必填项哦"
+            if(this.content===''){
+              this.notice="Hi,怎么能不说两句呢";
+              setTimeout(function () {
+                myVue.notice=''
+              },1000)
+            }else if(this.name===''){
+              this.notice="Hi,称呼是必填项哦";
+              setTimeout(function () {
+                myVue.notice=''
+              },1000)
             }else if(this.email===''){
-              this.notice="Hi,E-mail是必填项哦"
+              this.notice="Hi,E-mail是必填项哦";
+              setTimeout(function () {
+                myVue.notice=''
+              },1000)
             } else if (!this.isEmail(this.email)) {
                this.notice='Hi,邮箱格式不正确哦~';
                setTimeout(function () {

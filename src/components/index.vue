@@ -1,22 +1,17 @@
 <template>
 <div>
   <div class="index-main-container">
-    <section style="padding-top: 30px">
-      <div class="article" v-for="(item,index) in articles.dataList" :key="index" >
-        <div class="article-expand">
-          <router-link class="article-title" :to="{name:'articles',params:{id:item.postId}}">{{item.title}}</router-link>
-          <div class="article-meta" >
-            <font-awesome-icon :icon="['fas','calendar-times']" class="time" ></font-awesome-icon>
-            <span class="time">{{time(item.date)}}</span> |
-            <font-awesome-icon :icon="['fas','folder']" class="tags"></font-awesome-icon>
-            <span class="tags">{{item.tags.indexOf(',')?item.tags.replace(',',' '):item.tags}}</span> |
-            <font-awesome-icon :icon="['fas','eye']" class="count"></font-awesome-icon>
-            <span class="count">{{item.readNum}}</span>
-          </div>
-          <div class="article-desc" v-html="item.desc">
-           </div>
+    <section class="grid_container"  style="padding-top: 30px;">
+      <article class="row" v-for="(item,i) in articles.dataList" :key="i" style="overflow: hidden;cursor: pointer">
+        <header class="col-md-8 col-sm-12" style="vertical-align: middle">
+          <h2 style="color: #333;font-size: 26px;line-height: 1.5;"><router-link :to="{name:'articles',params:{id:item.postId}}">{{item.title}}</router-link></h2>
+          <div style="padding: 10px 0;letter-spacing: 1px;font-size: 16px;line-height: 1.625;color: #555;">{{item.desc}}</div>
+          <span style="color: #888;font-size: 12px">{{time(item.date)}} 发布 | {{parseInt(item.readNum)}}人阅览</span>
+        </header>
+        <div class="col-md-4 col-sm-12" style="height: 180px;vertical-align: middle;">
+          <div :style="{backgroundImage:'url('+item.imgSrc+')'}" style="height: 100%;background-size: cover;background-position: 50%;border-radius: 3px;box-shadow:0 2px 5px rgba(0, 0, 25, 0.1), 0 5px 75px 1px rgba(0, 0, 50, 0.2) "></div>
         </div>
-      </div>
+      </article>
     </section>
   </div>
   <v-pagination :total="total" :current-page="pageNow" @pageChange="getArticles"></v-pagination>
@@ -36,7 +31,8 @@
             articles:[],
             total:0,
             pageSize:8,
-            pageNow:1
+            pageNow:1,
+            backgroundImage:require('../assets/iphone-7.jpg')
           }
         },
       mounted(){
@@ -65,6 +61,7 @@
 </script>
 
 <style scoped>
+  @import "../style/responsive.css";
   .article:nth-child(odd) {
     animation: left 0.5s 0.5s linear;
     animation-fill-mode: both;
@@ -117,7 +114,7 @@
   }
   .index-main-container{
     width: 700px;
-    margin:0 auto;
+    margin:0 auto 20px;
   }
   @media screen and (max-width: 768px){
     .index-main-container{
