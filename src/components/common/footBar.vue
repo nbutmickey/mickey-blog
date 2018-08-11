@@ -9,7 +9,7 @@
         <a href="https://weibo.com/u/3276865015?refer_flag=1001030101_&is_hot=1"><img src="../../assets/weibo.svg" class="contact-img"/></a>
         <a href=""><img src="../../assets/qq.svg" class="contact-img"/></a>
       </div>
-      <div><span>&copy;2017 - {{year}}</span> | <a href="http://www.miitbeian.gov.cn">浙ICP备18029935号</a></div>
+      <div><span>&copy;2017 - {{year}}</span> | <a href="http://www.miitbeian.gov.cn" style="color: #999;">浙ICP备18029935号</a></div>
       <span style="display: block;text-align: center;color: #999988;padding: 10px 0 0">
          <span id="busuanzi_container_site_pv">本网站总访问量<span id="busuanzi_value_site_pv"></span>次</span> |
          <span id="busuanzi_container_site_uv">您是第<span id="busuanzi_value_site_uv"></span>个访客

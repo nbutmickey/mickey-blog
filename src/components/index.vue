@@ -71,7 +71,7 @@
     animation-fill-mode: both;
   }
   .item-avator{
-    height: 180px;
+    height: 200px;
     vertical-align: middle;
   }
   .item-avator div{
