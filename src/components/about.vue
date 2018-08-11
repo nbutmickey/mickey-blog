@@ -1,5 +1,5 @@
 <template>
-<div class="index">
+<div style="padding-bottom: 100px">
   <div class="message-container">
     <div class="about-me">
       <h1 class="about-title">关于我</h1>
@@ -33,6 +33,7 @@
               <div>称呼：<input v-model="name"  placeholder="怎么称呼？"/></div>
               <div>邮箱：<input v-model="email" type="text" placeholder="E-mail地址"/></div>
             </div>
+            <span style="color: red;display: block;padding: 5px 0;font-size: 10px">温馨提示：由于地理位置根据IP进行定位，所以可能会存在错误，谢谢！</span>
           </div>
         <div class="comment">
           <section class="comment-list" v-for="(comment) in commentList">
@@ -78,20 +79,11 @@
       },
         mounted(){
           $("#message-textArea").click(this.getChange);
-          // this.getIp();
-          // this.getAddress();
         },
         methods:{
           getChange:function () {
             $("#message-detail").slideDown();
           },
-          // getAddress:function () {
-          //   let url='/map/ip?ip='+this.ip+'&ak=qRmTkAC9LYGhkPK6Z3Oiefd7949GRG8d&coor=bd09ll';
-          //   console.log(url);
-          //   this.$http.get(url).then(res=>{
-          //     this.address=res.data.content.address;
-          //   })
-          // },
           submitMessage:function () {
             if(this.name===''){
               this.notice="称呼是必填项哦"

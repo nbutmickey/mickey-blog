@@ -1,10 +1,10 @@
 <template>
-    <div>
-      <div class="main-inner">
-        <div class="post-collapse">
-          <span class="post-move-on"></span>
-          <span class="post-count">OK,目前共计{{total}}篇日志，加油，继续努力！</span>
-          <div v-for="(item) in articles">
+  <div>
+    <div class="main-inner">
+      <div class="post-collapse">
+        <span class="post-move-on"></span>
+        <span class="post-count">OK,目前共计{{total}}篇日志，加油，继续努力！</span>
+        <div v-for="(item) in articles">
           <div class="collection-title">
             <h3 style="margin-left: 10px;">{{item.year}}</h3>
           </div>
@@ -16,37 +16,37 @@
               </div>
             </div>
           </div>
-          </div>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
   import {formatTime} from '../util/formDate'
-    export default {
-        name: "archives",
-        data(){
-          return{
-            total:'',
-            articles:[]
-          }
-        },
-        mounted(){
-          this.getArchives();
-        },
-        methods:{
-        getArchives:function () {
-          this.$http.get('/api/getArchives').then(res=>{
-            this.articles=res.data;
-            this.total=res.data[0].total;
-          })
-        },
-          time:function (times) {
-            return formatTime(times,'yyyy-mm-dd');
-          }
-        }
+  export default {
+    name: "archives",
+    data(){
+      return{
+        total:'',
+        articles:[]
+      }
+    },
+    mounted(){
+      this.getArchives();
+    },
+    methods:{
+      getArchives:function () {
+        this.$http.get('/api/getArchives').then(res=>{
+          this.articles=res.data;
+          this.total=res.data[0].total;
+        })
+      },
+      time:function (times) {
+        return formatTime(times,'yyyy-mm-dd');
+      }
     }
+  }
 </script>
 
 <style scoped>
@@ -117,10 +117,10 @@
     transition: border 0.2s ease-in-out;
     border-bottom: 1px dashed #ccc;
     line-height: 2;
-    /*top: -30px;*/
-    /*opacity: 0;*/
-    /*animation: down 0.8s 0.8s linear;*/
-    /*animation-fill-mode: both;*/
+    top: -30px;
+    opacity: 0;
+    animation: down 0.8s 0.8s linear;
+    animation-fill-mode: both;
   }
   .post-header:before{
     content: "";
@@ -135,7 +135,6 @@
     margin-top: -4px;
     transition: background 0.2s ease-in-out;
   }
-
   @media screen and (max-width: 768px){
     .main-inner{
       width: 94%;
