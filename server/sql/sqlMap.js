@@ -2,6 +2,7 @@ let sqlMap={
   articles:{
     getArticles:'SELECT * FROM articles',
     getArticleDetail:'SELECT * FROM articles where postId=?',
+    readNumIncrease:'UPDATE articles SET readNum=readNum+1 WHERE postId=?'
   },
   tags:{
     getAllTags:'SELECT tag,relations.tagId,count(*) AS length FROM relations,tags WHERE relations.tagId=tags.tagId GROUP BY relations.tagId\n' +

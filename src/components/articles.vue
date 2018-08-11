@@ -1,8 +1,6 @@
 <template>
-  <div>
   <div class="main-inner">
         <div class="comment-body markdown-body" v-html="detail.detail"></div>
-  </div>
   </div>
 </template>
 
@@ -16,8 +14,16 @@
         },
         mounted(){
           this.getArticleDetail();
+          this.readNumIncrease();
         },
        methods:{
+          readNumIncrease:function(){
+            this.$http.post('/api/readNumIncrease',{params:{
+              postId:this.$route.params.id,
+              }}).then(res=>{
+                console.log(this.$route.params.id);
+            });
+          },
           getArticleDetail:function () {
             this.$http.get('/api/getArticleDetails',{params:{
                 postId:this.$route.params.id,
@@ -33,6 +39,7 @@
   .main-inner{
     width: 700px;
     height: auto;
+    padding-top: 20px;
     margin: 0 auto;
     min-width: 350px
   }

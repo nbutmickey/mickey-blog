@@ -16,16 +16,35 @@ library.add(faHome,faTags,faArchive,faUser,faCalendarTimes,faFolder,faEye,faComm
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 //全局配置axios
 Vue.prototype.$http=axios;
-//进度条全局配置
-router.beforeEach((to,from,next) =>{
-  NProgress.start();
-  next()
-});
+//进度条全局配置,根据请求和响应进行配置。
+// router.beforeEach((to,from,next) =>{
+//   NProgress.start();
+//   next()
+// });
+//
+// router.afterEach((transition) =>{
+//   NProgress.done();
+// });
+//
+axios.interceptors.request.use(
+  function (config) {
+    NProgress.start();
+    return config;
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
 
-router.afterEach((transition) =>{
-  NProgress.done();
-});
-
+axios.interceptors.response.use(
+  function (response) {
+    NProgress.done();
+    return response
+  },
+  function (error) {
+    return Promise.reject(error)
+  }
+);
 
 Vue.config.productionTip = false;
 /* eslint-disable no-new */

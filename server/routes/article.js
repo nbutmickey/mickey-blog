@@ -179,4 +179,19 @@ router.get('/getArchives',(req,res)=>{
      }
   })
 });
+
+//文章阅览数的改变
+router.post('/readNumIncrease',(req,res)=>{
+  let postId=req.body.params.postId;
+  let sql=$sql.articles.readNumIncrease;
+  console.log(postId);
+  conn.query(sql,[postId],(err,result)=>{
+    if(err){
+      console.log(err);
+    }
+    if(result){
+      JsonBack(res,"success");
+    }
+  })
+});
 module.exports = router;
