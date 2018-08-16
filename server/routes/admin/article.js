@@ -74,7 +74,6 @@ router.post('/addArticle',(req,res)=>{
           });
         }
       });
-
     }
   });
 });
@@ -86,10 +85,10 @@ router.post('/addArticle',(req,res)=>{
 */
 router.post('/updateArticle',(req,res)=>{
   let sql=$sql.articles.updateArticle;
-  let {title,desc,lastModify,postId}=req.body.params;
+  let {title,des,lastModify,postId}=req.body.params;
   console.log(postId);
-  console.log(desc);
-  conn.query(sql,[title,desc,lastModify,postId],(err,result)=>{
+  console.log(des);
+  conn.query(sql,[title,des,lastModify,postId],(err,result)=>{
     if(err){
       console.log(err);
     }
@@ -101,4 +100,5 @@ router.post('/updateArticle',(req,res)=>{
     }
   })
 });
+
 module.exports=router;
