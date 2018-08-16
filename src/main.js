@@ -26,8 +26,6 @@ Vue.prototype.$http=axios;
 //   NProgress.done();
 // });
 //
-
-NProgress.configure({ ease: 'ease', speed: 2000,trickleRate: 0.8, trickleSpeed: 900 });
 axios.interceptors.request.use(
   function (config) {
     NProgress.start();

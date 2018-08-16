@@ -1,12 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var article = require('./server/routes/article');
+let index = require('./server/routes/index');
+let article=require('./server/routes/article');
+let tag=require('./server/routes/tags');
+let message=require('./server/routes/message');
 
-var app = express();
+
+let auth=require('./server/routes/admin/auth');
+let articles=require('./server/routes/admin/article');
+let tags=require('./server/routes/admin/tags');
+let qiniu=require('./server/routes/admin/qiniu');
+
+let app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -14,7 +23,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './dist')));
 
-app.use('/', article);
+app.use('/admin',auth);
+app.use('/admin',articles);
+app.use('/admin',tags);
+app.use('/admin',qiniu);
+
+app.use('/', index);
+app.use('/',article);
+app.use('/',tag);
+app.use('/',message);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -5,5 +5,5 @@ module.exports={
     password:'qwe',
     database:'blog',
     port:'3306'
-  }
+  },
 };

@@ -14,7 +14,6 @@
   import about from '../about'
   import archives from '../archives'
   import tags from '../tags'
-  import articles from '../articles'
   // 引入swiper的js文件和css样式表
   import Swiper from '../../../static/swiper.min'
   import '../../../static/swiper.min.css';
@@ -60,6 +59,6 @@
 </script>
 
 <style scoped>
-  .swiper-slide{height:0}
+  .swiper-slide{height:0;}
   .swiper-slide-active{height:auto}
 </style>

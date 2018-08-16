@@ -1,27 +1,14 @@
 let express = require('express');
 let router = express.Router();
-let mysql =require('mysql');
 let $sql=require('../sql/sqlMap');
-let sqlConfig=require('../db/db');
-let http=require('http');
-//连接数据库
-let conn=mysql.createConnection(sqlConfig.mysql);
-conn.connect();
-console.log("连接数据库成功！");
+let conn=require('../db/dbConnect');
+let JsonBack=require('../utils/JsonBack');
 
-//封装返回数据
-let JsonBack=function(res,ret){
-  if(typeof ret ==='undefined'){
-    res.json({
-      code:'1',
-      message:'操作失败'
-    });
-  }else{
-    res.json(ret);
-  }
-};
-
-// 获取文章内容
+/**
+ * @Description:获取全部文章内容
+ * @author nbut_Mickey
+ * @date 2018/8/13
+*/
 router.get('/getAllArticles',(req,res)=>{
   let params=req.query;
   let total=0;
@@ -47,7 +34,12 @@ router.get('/getAllArticles',(req,res)=>{
   })
 });
 
-//获取文章详情
+/**
+ * @Description: 获取每一篇文章的详情
+ * @author nbut_Mickey
+ * @date 2018/8/13
+*/
+
 router.get('/getArticleDetails',(req,res)=>{
   let postId=req.query.postId;
   let detail={};
@@ -60,69 +52,14 @@ router.get('/getArticleDetails',(req,res)=>{
     if(detail){
       JsonBack(res,detail);
     }
-  })
-
-});
-
-//获取全部标签
-router.get('/getAllTags',(req,res)=>{
-  let sql=$sql.tags.getAllTags;
-  conn.query(sql,(err,result)=>{
-    if(err){
-      console.log(err);
-    }
-    let tagList;
-    tagList=result;
-    if(tagList){
-      JsonBack(res,tagList);
-    }
-  })
-});
-
-router.post('/postMessage',(req,resto)=>{
-  //获取客户端IP地址
-  let ipAddress;
-  let forwardedIpsStr = req.header('x-forwarded-for');
-  if (forwardedIpsStr) {
-    let forwardedIps = forwardedIpsStr.split(',');
-    ipAddress = forwardedIps[0];
-  }
-  if (!ipAddress) {
-    ipAddress = req.connection.remoteAddress;
-  }
-  let fetchUrl='http://api.map.baidu.com/location/ip?ip='+ipAddress+'&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
-  http.get(fetchUrl,function (res) {
-    res.setEncoding('utf8');
-    let rawData='';
-    res.on('data',function (chunk) {
-      rawData+=chunk;
-      let TrueAddress=JSON.parse(rawData).content.address;
-      let message=req.body.params.message;
-      let sql=$sql.message.insertMessage;
-      conn.query(sql,[message.name,message.email,message.content,ipAddress,TrueAddress,message.time],(err,result)=>{
-        if(err){
-          console.log(err);
-        }
-        if(result){
-          JsonBack(resto,"success");
-        }
-      });
-    });
   });
 });
 
-router.get('/getAllMessages',(req,res)=>{
-  let sql=$sql.message.getAllMessages;
-  conn.query(sql,(err,result)=>{
-    if(err){
-      console.log(err);
-    }
-    if(result){
-      JsonBack(res,result.reverse());
-    }
-  })
-});
-
+/**
+ * @Description: 获取标签对应的文章
+ * @author nbut_Mickey
+ * @date 2018/8/13
+*/
 router.get('/getTagArticle',(req,res)=>{
   let sqlName=$sql.tags.getTagName;
   let query=req.query;
@@ -148,6 +85,11 @@ router.get('/getTagArticle',(req,res)=>{
   })
 });
 
+/**
+ * @Description: 获取归档文章
+ * @author nbut_Mickey
+ * @date 2018/8/13
+*/
 router.get('/getArchives',(req,res)=>{
   let sql=$sql.articles.getArticles;
   let yearList=[];
@@ -157,41 +99,40 @@ router.get('/getArchives',(req,res)=>{
       console.log(err);
     }
     if(result){
-     for(let i=0;i<result.length;i++){
-       yearList.push(new Date(result[i].date).getFullYear());
-     }
-       yearList = [...new Set(yearList)];
-       for(let i=0;i<yearList.length;i++){
-         let obj={
-           year:yearList[i],
-           result:[],
-           total:Number,
-         };
-         for(let j=0;j<result.length;j++){
-           if(yearList[i]===new Date(result[j].date).getFullYear()){
-             obj.result.push(result[j]);
-           }
-         }
-         obj.total=result.length;
-         list.push(obj);
-       }
+      for(let i=0;i<result.length;i++){
+        yearList.push(new Date(result[i].date).getFullYear());
+      }
+      yearList = [...new Set(yearList)];
+      for(let i=0;i<yearList.length;i++){
+        let obj={
+          year:yearList[i],
+          result:[],
+          total:Number,
+        };
+        for(let j=0;j<result.length;j++){
+          if(yearList[i]===new Date(result[j].date).getFullYear()){
+            obj.result.push(result[j]);
+          }
+        }
+        obj.total=result.length;
+        list.push(obj);
+      }
       JsonBack(res,list);
-     }
+    }
   })
 });
 
-//文章阅览数的改变
-router.post('/readNumIncrease',(req,res)=>{
-  let postId=req.body.params.postId;
-  let sql=$sql.articles.readNumIncrease;
-  console.log(postId);
-  conn.query(sql,[postId],(err,result)=>{
+router.get('/getArticle',(req,res)=>{
+  let sql=$sql.articles.getArticles;
+  conn.query(sql,(err,result)=>{
     if(err){
       console.log(err);
     }
     if(result){
-      JsonBack(res,"success");
+      JsonBack(res,result);
     }
   })
 });
-module.exports = router;
+module.exports=router;
+
+

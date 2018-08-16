@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
   import headerBar from './components/common/headerBar'
   import footerBar from './components/common/footBar'
   import swiper from './components/common/swiper'

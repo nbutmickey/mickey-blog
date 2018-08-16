@@ -39,6 +39,7 @@
 </template>
 
 <script>
+
     export default {
         name: "headerBar",
         data(){
@@ -79,7 +80,6 @@
       }
     }
 </script>
-
 <style scoped lang="less">
   header{
     width:100%;
