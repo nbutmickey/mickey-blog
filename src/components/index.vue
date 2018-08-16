@@ -8,7 +8,7 @@
         </div>
         <header class="col-md-8 col-sm-12 item-header">
           <h2 class="item-title"><router-link :to="{name:'articles',params:{id:item.postId}}">{{item.title}}</router-link></h2>
-          <div class="item-content">{{item.desc}}</div>
+          <div class="item-content">{{item.des}}</div>
           <span class="item-meta">{{time(item.date)}} 发布 | {{parseInt(item.readNum)}}人阅览</span>
         </header>
       </article>
