@@ -1,7 +1,7 @@
 <template>
 <div class="headerBar">
   <header :style="{background:'url('+backgroundImage+')'}">
-    <span @click="fullScreen" class="fullScreen">
+    <span @click="fullScreen" id="fullScreen" >
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-fullscreen"></use>
       </svg>
@@ -59,17 +59,13 @@
             ]
           }
         },
-      mounted(){
-          this.BrowserType();
-      },
       methods:{
          //判断浏览器类型
         BrowserType:function(){
           let userAgent = navigator.userAgent;
           let isSafari = userAgent.indexOf("Safari") > -1;
           if(isSafari){
-            document.getElementsByClassName("fullScreen").style.display='none';
-            alert("true");
+            document.getElementById("fullScreen").style.display='none';
           }
         },
         //全屏浏览
@@ -112,6 +108,7 @@
         }
       },
       mounted(){
+            this.BrowserType();
             window.addEventListener('scroll',this.calTopHeight);
             //监听并接收swiper发射的index信号（参数第一个是信号名，第一个是对应的回调函数）
             this.$root.$on('slideTab',this.slideTab);
@@ -129,7 +126,7 @@
       height: 100%;
       position: relative;
     }
-    .fullScreen{
+    #fullScreen{
       position: absolute;
       top:4px;
       left: 2px;
