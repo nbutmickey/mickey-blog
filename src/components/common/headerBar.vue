@@ -63,7 +63,7 @@
          //判断浏览器类型
         BrowserType:function(){
           let userAgent = navigator.userAgent;
-          let isSafari = userAgent.indexOf("Safari") > -1;
+          let isSafari = userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") ===-1;
           if(isSafari){
             document.getElementById("fullScreen").style.display='none';
           }
