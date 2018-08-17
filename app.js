@@ -14,6 +14,7 @@ let auth=require('./server/routes/admin/auth');
 let articles=require('./server/routes/admin/article');
 let tags=require('./server/routes/admin/tags');
 let qiniu=require('./server/routes/admin/qiniu');
+let messages=require('./server/routes/admin/message');
 
 let app = express();
 
@@ -27,6 +28,7 @@ app.use('/admin',auth);
 app.use('/admin',articles);
 app.use('/admin',tags);
 app.use('/admin',qiniu);
+app.use('/admin',messages);
 
 app.use('/', index);
 app.use('/',article);
