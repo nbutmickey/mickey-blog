@@ -59,7 +59,19 @@
             ]
           }
         },
+      mounted(){
+          this.BrowserType();
+      },
       methods:{
+         //判断浏览器类型
+        BrowserType:function(){
+          let userAgent = navigator.userAgent;
+          let isSafari = userAgent.indexOf("Safari") > -1;
+          if(isSafari){
+            document.getElementsByClassName("fullScreen").style.display='none';
+            alert("true");
+          }
+        },
         //全屏浏览
         fullScreen:function(){
           if (document.exitFullscreen) {
@@ -73,9 +85,6 @@
           else if (document.msExitFullscreen) {
             document.msExitFullscreen();
           }
-          // if(typeof cfs !== "undefined" && cfs) {
-          //   cfs.call(el);
-          // }
 
           let el = document.documentElement;
           let rfs=el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
