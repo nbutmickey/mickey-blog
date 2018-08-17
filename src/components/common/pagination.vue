@@ -1,15 +1,11 @@
 <template>
-    <div>
-      <nav>
-        <ul class="pagination">
-          <li :class="{'disabled':current===1}"><a href="javascript:;" @click="setCurrent(current-1)"> « </a></li>
-          <li :class="{'disabled':current===1}"><a href="javascript:;" @click="setCurrent(1)"> 首页 </a></li>
-          <li v-for="p in groupList" :class="{'active':current===p.val}"><a href="javascript:;" @click="setCurrent(p.val)">{{p.text}}</a></li>
-          <li :class="{'disabled':current===page}"><a href="javascript:;" @click="setCurrent(page)"> 尾页 </a></li>
-          <li :class="{'disabled':current===page}"><a href="javascript:;" @click="setCurrent(current+1)"> » </a></li>
-        </ul>
+      <nav class="pagination">
+          <a :class="{'disabled':current===1}" href="javascript:;" @click="setCurrent(current-1)"> « </a>
+          <a :class="{'disabled':current===1}" href="javascript:;" @click="setCurrent(1)"> 首页 </a>
+          <a v-for="p in groupList" :class="{'active':current===p.val}" href="javascript:;" @click="setCurrent(p.val)">{{p.text}}</a>
+          <a :class="{'disabled':current===page}" href="javascript:;" @click="setCurrent(page)"> 尾页 </a>
+          <a :class="{'disabled':current===page}" href="javascript:;" @click="setCurrent(current+1)"> » </a>
       </nav>
-    </div>
 </template>
 
 <script>
@@ -94,46 +90,41 @@
 </script>
 
 <style scoped>
+
 .pagination{
-  overflow: hidden;
-  display: table;
-  margin: 0 auto;
-  height: 38px;
-  background: rgba(0, 0, 0, 0.4);
-}
-  li{
-    float: left;
-    height: 30px;
-    border-radius: 5px;
-    margin: 3px;
-    color: #666;
-  }
-  li:hover{
-    background: #000;
-  }
-  a{
-    color: #fff;
-  }
-a {
-  display: block;
-  width: 30px;
-  height: 30px;
   text-align: center;
-  line-height: 30px;
-  font-size: 12px;
-  border-radius: 5px;
-  text-decoration: none
+  margin: 120px auto 0;
+  line-height: 2;
+  width: 700px;
+  border-top:1px solid #eee;
 }
-.active {
-  background: #000;
+
+a {
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  margin: 0 8px;
+  padding: 0 10px;
+  border-top:1px solid #eee;
+  transition: border-color .2s ease-in-out;
 }
+.pagination a:hover{
+  border-top-color: #555;
+}
+
+.active{
+  color: #fff;
+  background: #ccc;
+  border-top-color: #ccc;
+}
+
   @media screen and (max-width: 768px) {
     .pagination{
-      height: 29px;
-    }
-    a{
-      width: 26px;
-      height: 26px;
+       width: 94%;
+     }
+    .pagination a{
+      margin: 0 4px;
+      padding: 0 6px;
     }
   }
 

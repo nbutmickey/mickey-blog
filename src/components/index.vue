@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-bottom: 70px">
   <div class="index-main-container">
     <section class="grid_container"  style="padding-top: 30px;">
       <article class="row article-item" v-for="(item,i) in articles.dataList" :key="i">

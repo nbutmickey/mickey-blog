@@ -1,4 +1,5 @@
 <template>
+  <div class="index">
     <div class="main-inner">
       <div class="post-collapse">
         <span class="post-move-on"></span>
@@ -18,6 +19,7 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>

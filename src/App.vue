@@ -3,6 +3,7 @@
     <header-bar></header-bar>
     <router-view></router-view>
     <footer-bar></footer-bar>
+    <back-to-top></back-to-top>
   </div>
 </template>
 
@@ -10,13 +11,14 @@
   import headerBar from './components/common/headerBar'
   import footerBar from './components/common/footBar'
   import swiper from './components/common/swiper'
-
+  import backToTop from './components/common/backToTop'
 export default {
     name:'App',
     components:{
       headerBar,
       footerBar,
-      swiper
+      swiper,
+      backToTop
     }
 }
 </script>
