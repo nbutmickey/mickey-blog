@@ -1,6 +1,11 @@
 <template>
 <div class="headerBar">
   <header :style="{background:'url('+backgroundImage+')'}">
+    <span @click="fullScreen" class="fullScreen">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-fullscreen"></use>
+      </svg>
+      全屏浏览</span>
     <!--//顶部导航栏-->
     <div class="navBar" v-if="isNavBarShow">
       <nav>
@@ -39,7 +44,7 @@
 </template>
 
 <script>
-
+    import '../../assets/iconfont/iconfont'
     export default {
         name: "headerBar",
         data(){
@@ -55,6 +60,30 @@
           }
         },
       methods:{
+        //全屏浏览
+        fullScreen:function(){
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          }
+          else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+          }
+          else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+          }
+          // if(typeof cfs !== "undefined" && cfs) {
+          //   cfs.call(el);
+          // }
+
+          let el = document.documentElement;
+          let rfs=el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+          if(typeof rfs !== "undefined" && rfs) {
+            rfs.call(el);
+          }
+          return;
+        },
         calTopHeight(){
           let scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
           if( scrollTop>260|| scrollTop>325){
@@ -90,6 +119,14 @@
       width: 700px;
       height: 100%;
       position: relative;
+    }
+    .fullScreen{
+      position: absolute;
+      top:4px;
+      left: 2px;
+      color: white;
+      letter-spacing: 1px;
+      cursor: pointer;
     }
     .author{
       text-align: center;
