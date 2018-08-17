@@ -44,7 +44,7 @@
         name: "headerBar",
         data(){
           return {
-            backgroundImage:require('../../assets/header-bg.jpg'),
+            backgroundImage:require('../../assets/header.jpg'),
             isNavBarShow:false,
             navList:[
               {routeToName:'index',iconName:'home',navName:'首页'},
@@ -57,7 +57,7 @@
       methods:{
         calTopHeight(){
           let scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
-          if(scrollTop>260||scrollTop>325){
+          if( scrollTop>260|| scrollTop>325){
             this.isNavBarShow=true;
           }else{
             this.isNavBarShow=false;
@@ -109,7 +109,7 @@
       display: inline-block;
       letter-spacing: 10px;
       color: #f5f5f5;
-      font-size: 50px;
+      font-size: 60px;
       vertical-align: top;
       font-weight: normal;
       line-height: 56px;
@@ -125,16 +125,18 @@
       margin: 20px auto 0;
       width: 450px;
       height: 64px;
-      background: rgba(255, 255, 255, 0.65);
+      background: transparent;
       display: flex;
       padding: 10px 30px;
       .menu-item {
         flex: 1;
         .router-link-active {
           svg {
+            color: white;
             opacity: 1;
           }
           span {
+            color: white;
             opacity: 1;
             &::before {
               visibility: visible;
@@ -146,7 +148,7 @@
       a {
         position: relative;
         cursor: pointer;
-        color: #333;
+        color: white;
         font-size: 16px;
         display: flex;
         flex-direction: column;
