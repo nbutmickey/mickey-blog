@@ -95,7 +95,7 @@
   text-align: center;
   margin: 120px auto 0;
   line-height: 2;
-  width: 700px;
+  width: 800px;
   border-top:1px solid #eee;
 }
 

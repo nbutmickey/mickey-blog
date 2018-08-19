@@ -1,19 +1,17 @@
 <template>
   <div style="padding-bottom: 70px">
-  <div class="index-main-container">
-    <section class="grid_container"  style="padding-top: 30px;">
-      <article class="row article-item" v-for="(item,i) in articles.dataList" :key="i">
+    <section class="grid_container index-main-container">
+      <router-link :to="{name:'articles',params:{id:item.postId}}" tag="div" class="row article-item" v-for="(item,i) in articles.dataList" :key="i">
         <div class="col-md-4 col-sm-12 item-avator">
           <div :style="{backgroundImage:'url('+item.imgSrc+')'}"></div>
         </div>
         <header class="col-md-8 col-sm-12 item-header">
-          <h2 class="item-title"><router-link :to="{name:'articles',params:{id:item.postId}}">{{item.title}}</router-link></h2>
+          <h2 class="item-title">{{item.title}}</h2>
           <div class="item-content">{{item.des}}</div>
           <span class="item-meta">{{time(item.date)}} 发布 | {{parseInt(item.readNum)}}人阅览</span>
         </header>
-      </article>
+      </router-link>
     </section>
-  </div>
   <v-pagination :total="total" :current-page="pageNow" @pageChange="getArticles"></v-pagination>
 </div>
 </template>
@@ -61,19 +59,25 @@
 
 <style scoped>
   @import "../style/responsive.css";
+  .index-main-container{
+    width: 800px;
+    margin: 0 auto;
+  }
   .article-item{
-    overflow: hidden;
+    position: relative;
     cursor: pointer;
-    padding-bottom: 20px;
-    top: -50px;
+    padding: 20px 0;
+    top:-30px;
     opacity: 0;
-    animation: down 0.5s 0.5s linear;
+    animation: down 0.8s 0.8s linear;
     animation-fill-mode: both;
   }
+
   .item-avator{
     height: 200px;
     vertical-align: middle;
   }
+
   .item-avator div{
     height: 100%;
     background-size: cover;
@@ -81,22 +85,22 @@
     border-radius: 3px;
     box-shadow:0 2px 5px rgba(0, 0, 25, 0.1), 0 5px 75px 1px rgba(0, 0, 50, 0.2)
   }
-  .index-main-container{
-    width: 700px;
-    margin:0 auto 20px;
-  }
+
   .item-header{
+    height: 200px;
+    padding-left: 20px;
     vertical-align: middle;
+    position: relative;
   }
   .item-title{
     color: #333;
-    font-size: 26px;
+    font-size: 22px;
     line-height: 1.5;
   }
   .item-content{
-    padding: 10px 0;
+    padding: 10px 5px  10px 0;
     letter-spacing: 1px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.625;
     color: #555;
   }

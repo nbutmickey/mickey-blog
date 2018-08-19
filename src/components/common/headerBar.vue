@@ -122,7 +122,8 @@
     .header-inner{
       margin: 0 auto;
       padding: 100px 0 70px;
-      width: 700px;
+      background-color: rgba(0,0,0,0.5);
+      width: 100%;
       height: 100%;
       position: relative;
     }
@@ -215,7 +216,7 @@
             height: 1px;
             bottom: -5px;
             left: 0;
-            background-color: #333;
+            background-color: white;
             visibility: hidden;
             transform: scaleX(0);
             transition: all .2s ease-in-out;
