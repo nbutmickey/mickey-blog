@@ -11,11 +11,7 @@ html{
 /*定义row，实现行内元素不会溢出到其他行，利用清除浮动实现*/
 .row::before,
 .row::after{
-<<<<<<< HEAD
-  content:"";
-=======
   content: "";
->>>>>>> 50bdc96a2f7f1d41b1deef7b396d825da365ece7
   display: block;
   clear: both;
   height:0;
