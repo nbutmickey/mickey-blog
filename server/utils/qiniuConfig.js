@@ -6,7 +6,7 @@ const secretKey="GYdcw8V4Q1K3Us1MBFBbCatiQark9deRmQL0oD02";
 const mac=new qiniu.auth.digest.Mac(accessKey,secretKey);
 const options={
   scope:'blog',
-  expires:7200
+  expires:18000
 };
 
 const putPolicy=new qiniu.rs.PutPolicy(options);
