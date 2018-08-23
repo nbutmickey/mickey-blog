@@ -9,8 +9,8 @@ html{
 }
 
 /*定义row，实现行内元素不会溢出到其他行，利用清除浮动实现*/
-.row ::before,
-.row ::after{
+.row::before,
+.row::after{
   content: "";
   display: block;
   clear: both;
