@@ -16,7 +16,7 @@
     </div>
 
     <div class="header-inner">
-        <span @click="fullScreen" id="fullScreen" >
+      <span @click="fullScreen" id="fullScreen" >
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-fullscreen"></use>
       </svg>
@@ -119,6 +119,7 @@
   header{
     width:100%;
     height: 325px;
+    position: relative;
     .header-inner{
       margin: 0 auto;
       padding: 100px 0 70px;
