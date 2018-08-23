@@ -1,11 +1,6 @@
 <template>
 <div class="headerBar">
   <header :style="{background:'url('+backgroundImage+')'}">
-    <span @click="fullScreen" id="fullScreen" >
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-fullscreen"></use>
-      </svg>
-      全屏浏览</span>
     <!--//顶部导航栏-->
     <div class="navBar" v-if="isNavBarShow">
       <nav>
@@ -21,6 +16,11 @@
     </div>
 
     <div class="header-inner">
+      <span @click="fullScreen" id="fullScreen" >
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-fullscreen"></use>
+      </svg>
+      全屏浏览</span>
       <div class="author">
         <a href="/" class="brand">
           <span class="site-author">米奇</span>
@@ -119,10 +119,12 @@
   header{
     width:100%;
     height: 325px;
+    position: relative;
     .header-inner{
       margin: 0 auto;
       padding: 100px 0 70px;
-      width: 700px;
+      background-color: rgba(0,0,0,.5);
+      width: 100%;
       height: 100%;
       position: relative;
     }
