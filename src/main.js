@@ -8,6 +8,15 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faHome,faTags,faArchive,faUser,faCalendarTimes,faFolder,faEye,faCommentAlt,faCheckSquare} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+import  hljs from 'highlight.js'
+import 'highlight.js/styles/googlecode.css'
+Vue.directive('highlight',function (el) {
+  let blocks = el.querySelectorAll('pre code');
+  blocks.forEach((block)=>{
+    hljs.highlightBlock(block)
+  })
+});
+
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
