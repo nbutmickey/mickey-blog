@@ -14,7 +14,7 @@ Vue.directive('highlight',function (el) {
   let blocks = el.querySelectorAll('pre code');
   blocks.forEach((block)=>{
     hljs.highlightBlock(block)
-})
+ })
 });
 
 import NProgress from 'nprogress'
