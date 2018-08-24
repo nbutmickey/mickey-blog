@@ -1,5 +1,5 @@
 .markdown-body {
-  font: normal 10pt Consolas, Monaco, monospace;
+  font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace;
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
