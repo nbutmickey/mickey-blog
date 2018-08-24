@@ -65,7 +65,8 @@
 
 .markdown-body blockquote {
   padding: 0 1em;
-  color: #6a737d;
+  color: #555;
+  background: #F6F6F6;
   border-left: 0.25em solid #009A61;
   margin-left: 0;
 }
