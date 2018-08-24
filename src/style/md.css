@@ -373,8 +373,13 @@
   overflow: hidden;
   text-align: right;
 }
+.markdown-body code{
+  padding: 2px 4px;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
 
-.markdown-body code,
 .markdown-body tt {
   padding: 0.2em 0.4em;
   margin: 0;
