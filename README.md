@@ -7,7 +7,8 @@
 博客后台源码地址：[mickey-blog-admin](https://github.com/nbutmickey/mickey-blog-admin)   
 > 由于本人在设计上缺乏缺陷，博客中的部分样式参考了大佬[翁天信的博客](https://blog.dandyweng.com/)和学长的博客[cykspace](https://github.com/chenyinkai/cykspace)
 # 相关技术栈
-* vue + vue-router + less + axios + swiper
+* vue + vue-router + axios
+* less + fontawesome + swiper + highlight.js + NProgress
 * node + Express
 * mysql
 * Nginx + pm2
