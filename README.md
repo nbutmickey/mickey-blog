@@ -9,7 +9,7 @@
    
 大佬们如果觉得还行的话，就给个`star`吧，哈哈~
 # 相关技术栈
-* 前端：vue + vue-router + axios
+* 前端：webpack + vue + vue-router + axios
 * UI：less + fontawesome + swiper + highlight.js + NProgress
 * 后台：Express + mysql + ElementUI
 * 部署：Nginx + pm2
@@ -23,17 +23,17 @@
 如果您的电脑未安装`npm`、`node`、`mysql`,那么请您事先安装好这两个工具。
 > git clone代码或者直接download代码
 ```
-git clone 
+git clone git@github.com:nbutmickey/mickey-blog.git
 ```
-> install
+> 安装相关依赖
 ```
 npm install
 ```
-> run front end
+> 运行前端
 ```
 npm run dev
 ```
-> run node
+> 运行后端服务器
 ```
 node ./bin/www
 ```
