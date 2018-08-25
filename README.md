@@ -8,6 +8,8 @@
 > 由于本人在设计上缺乏缺陷，博客中的部分样式参考了大佬[翁天信的博客](https://blog.dandyweng.com/)和学长的博客[cykspace](https://github.com/chenyinkai/cykspace)    
    
 大佬们如果觉得还行的话，就给个`star`吧，哈哈~
+# 描述 
+接触前端也快有两年的时间，去年暑假就一直很想做自己的个人博客，但是因为某些不可抗力的因素和学业的繁重，一直就拖到现在，在这里向自己还有支持我的人表示歉意！这款个人博客是基于当前比较流行的三大框架之一---vue,js而建立的，基础功能都已经全部完成，在参考了学长做的博客基础上，添加了许多新功能，比如`swiper实现左右滑动`、`留言板`、`定位`等功能。虽然这些可能对于大佬们来说，都是轻而易举的小事，但是对于我这个前端入门级新手来说，却是自己学习的一个新台阶，我希望通过这个个人博客来传递更多技术信息和分享自己经验的同时，来提高自己的编程水平。
 # 相关技术栈
 * 前端：webpack + vue + vue-router + axios
 * UI：less + fontawesome + swiper + highlight.js + NProgress
@@ -15,7 +17,7 @@
 * 部署：Nginx + pm2
 # 未来可能加入
 * ssr
-* 文章评论、分享到站外
+* 文章评论、点赞、分享到站外
 * 网易云音乐
 * 夜间模式
 * 中英文切换
@@ -29,7 +31,7 @@ git clone git@github.com:nbutmickey/mickey-blog.git
 ```
 npm install
 ```
-> 运行前端
+> 运行项目
 ```
 npm run dev
 ```
@@ -37,7 +39,7 @@ npm run dev
 ```
 node ./bin/www
 ```
-> 打包前端
+> 打包项目
 ```
 npm run build
 ```
