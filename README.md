@@ -5,5 +5,8 @@
    
 博客线上地址：[blog.mickey-nbut.cn](https://blog.mickey-nbut.cn/#/)   
 博客后台源码地址：[mickey-blog-admin](https://github.com/nbutmickey/mickey-blog-admin)   
-> 由于本人再设计上缺乏缺陷，博客中的部分样式参考了大佬[翁天信的博客](https://blog.dandyweng.com/)和学长的博客[cykspace](https://github.com/chenyinkai/cykspace)
-
+> 由于本人在设计上缺乏缺陷，博客中的部分样式参考了大佬[翁天信的博客](https://blog.dandyweng.com/)和学长的博客[cykspace](https://github.com/chenyinkai/cykspace)
+# 结构目录
+# 相关技术栈
+# 未来可能加入
+# 用法
