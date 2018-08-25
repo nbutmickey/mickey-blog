@@ -11,7 +11,7 @@
 # 相关技术栈
 * 前端：vue + vue-router + axios
 * UI：less + fontawesome + swiper + highlight.js + NProgress
-* 后台：Express + mysql
+* 后台：Express + mysql + ElementUI
 * 部署：Nginx + pm2
 # 未来可能加入
 * ssr
@@ -20,3 +20,20 @@
 * 夜间模式
 * 中英文切换
 # 用法
+如果您的电脑未安装`npm`、`node`、`mysql`,那么请您事先安装好这两个工具。
+> git clone代码或者直接download代码
+```
+git clone 
+```
+> install
+```
+npm install
+```
+> run front end
+```
+npm run dev
+```
+> run node
+```
+node ./bin/www
+```
