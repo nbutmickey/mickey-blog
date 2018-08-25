@@ -37,4 +37,8 @@ npm run dev
 ```
 node ./bin/www
 ```
+> 打包前端
+```
+npm run build
+```
 如果在运行过程中遇到什么问题，请在这里[issues](https://github.com/nbutmickey/mickey-blog/issues)提交，我会及时为您解答。
