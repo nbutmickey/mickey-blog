@@ -1,5 +1,5 @@
 <template>
-<div v-if="commentList.length" class="index">
+<div class="index">
   <div class="message-container">
     <div class="about-me">
       <h1 class="about-title">关于我</h1>
