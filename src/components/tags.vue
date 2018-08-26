@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div v-if="tagList.length" class="index">
   <div class="post-main-container">
   <div class="post-block">
     <div class="post-cloud">

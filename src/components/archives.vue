@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div v-if="articles.length" class="index">
     <div class="main-inner">
       <div class="post-collapse">
         <span class="post-move-on"></span>
