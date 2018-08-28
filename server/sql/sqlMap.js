@@ -4,7 +4,7 @@ let sqlMap={
     getArticleDetail:'SELECT * FROM articles where postId=?',
     deleteArticle:'DELETE FROM articles WHERE postId=?',
     insertArticle:'INSERT INTO articles VALUES(NULL,?,?,?,?,?,?,?,?,?)',
-    updateArticle:'UPDATE articles SET title=?,des=?,lastModify=? WHERE postId=?',
+    updateArticle:'UPDATE articles SET title=?,des=?,detail=?,lastModify=? WHERE postId=?',
     getPostId:'SELECT postId FROM articles WHERE title=?',
     readNumIncrease:'UPDATE articles SET readNum=readNum+1 WHERE postId=?'
   },

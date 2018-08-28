@@ -1,5 +1,5 @@
 <template>
-  <div v-if="articles.dataList.length" style="padding-bottom: 70px">
+  <div style="padding-bottom: 70px">
     <section class="grid_container index-main-container">
       <router-link :to="{name:'articles',params:{id:item.postId}}" tag="div" class="row article-item" v-for="(item,i) in articles.dataList" :key="i">
         <div class="col-md-4 col-sm-12 item-avator">

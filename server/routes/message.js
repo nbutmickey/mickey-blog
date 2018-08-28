@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let $sql=require('../sql/sqlMap');
-let http=require('http');
+let axios=require('axios');
 let conn=require('../db/dbConnect');
 let JsonBack=require('../utils/JsonBack');
 
@@ -39,22 +39,17 @@ router.post('/postMessage',(req,resto)=>{
     ipAddress = req.connection.remoteAddress;
   }
   let fetchUrl='http://api.map.baidu.com/location/ip?ip='+ipAddress+'&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
-  http.get(fetchUrl,function (res) {
-    res.setEncoding('utf8');
-    let rawData='';
-    res.on('data',function (chunk) {
-      rawData+=chunk;
-      let TrueAddress=JSON.parse(rawData).content.address;
-      let message=req.body.params.message;
-      let sql=$sql.message.insertMessage;
-      conn.query(sql,[message.name,message.email,message.content,ipAddress,TrueAddress,message.time],(err,result)=>{
-        if(err){
-          console.log(err);
-        }
-        if(result){
-          JsonBack(resto,"success");
-        }
-      });
+  axios.get(fetchUrl).then(res=>{
+    let TrueAddress=res.data.content.address;
+    let message=req.body.params.message;
+    let sql=$sql.message.insertMessage;
+    conn.query(sql,[message.name,message.email,message.content,ipAddress,TrueAddress,message.time],(err,result)=>{
+      if(err){
+        console.log(err);
+      }
+      if(result){
+        JsonBack(resto,"success");
+      }
     });
   });
 });
