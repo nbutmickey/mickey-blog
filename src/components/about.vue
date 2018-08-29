@@ -5,7 +5,7 @@
       <h1 class="about-title">关于我</h1>
       <div class="about-avator"><img src="../assets/avator.jpg"/></div>
       <div class="about-content">
-        <h3 class="about-summary-tit le">个人简介</h3>
+        <h3 class="about-summary-title">个人简介</h3>
         <div class="about-summary-content">
         我来自安徽六安,自称“有志”青年，现就读于宁波工程学院，一个快要大三的老学长，在这里偷偷的假装自己是一名程序猿，一名“年轻”的前端攻城狮。
         </div>
@@ -47,7 +47,7 @@
             </div>
           </header>
           <div class="comment-content">
-            <p>{{window.atob(comment.content)}}</p>
+            <p>{{comment.content}}</p>
         </div>
         </section>
         </div>
@@ -112,7 +112,7 @@
             let message={
               name:this.name,
               email:this.email,
-              content:window.btoa(this.content),
+              content:this.content,
               ip:this.ip,
               time:date.getTime(),
             };
@@ -132,6 +132,7 @@
           getAllComments:function () {
             this.$http.get('/api/getAllMessages').then(res=>{
               this.commentList=res.data;
+              console.log(res.data);
             })
           },
           date:function (times) {
