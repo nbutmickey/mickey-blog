@@ -38,7 +38,7 @@ router.post('/postMessage',(req,resto)=>{
   if (!ipAddress) {
     ipAddress = req.connection.remoteAddress;
   }
-  let fetchUrl='http://api.map.baidu.com/location/ip?ip='+'47.100.253.114'+'&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
+  let fetchUrl='https://api.map.baidu.com/location/ip?ip='+ipAddress+'&ak=XKOlseUHMLdHZ7ZYF96DLw7q2IXdXEdD&coor=bd09ll';
   axios.get(fetchUrl).then(res=>{
     let TrueAddress=res.data.content.address;
     let message=req.body.params.message;

@@ -89,7 +89,7 @@
   }
   .comment-body {
     width: 100%;
-    padding: 15px;
+    padding: 5px;
     overflow: auto;
     font-size: 14px;
     color: #24292e;
@@ -100,7 +100,7 @@
     margin-left: 0;
   }
   a {
-    color: #0366d6;
+    color: #009A61;
     text-decoration: none;
   }
 
