@@ -688,6 +688,10 @@
   margin-top: 3px;
 }
 
+.code{
+	border-radius:4px;
+	color:#c7254e
+}
 .markdown-body .task-list-item input {
   margin: 0 0.2em 0.25em -1.6em;
   vertical-align: middle;
