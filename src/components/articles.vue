@@ -92,7 +92,7 @@
     padding: 5px;
     overflow: auto;
     font-size: 14px;
-    color: #24292e;
+    color: #555;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
